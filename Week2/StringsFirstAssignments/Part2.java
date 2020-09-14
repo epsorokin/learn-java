@@ -2,8 +2,8 @@
 /**
  * Part 2: Finding a Gene - Using the Simplified Algorithm Reorganized
  * 
- * @EPS
- * @2020-09-13
+ * @author (EPS)
+ * @version (2020-09-13)
  */
 public class Part2 {
     //findSimpleGene has one String parameter, DNA

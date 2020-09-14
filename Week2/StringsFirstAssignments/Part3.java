@@ -2,8 +2,8 @@
 /**
  * Part 3: Problem Solving with Strings
  * 
- * @EPS 
- * @2020-09-13
+ * @author (EPS)
+ * @version (2020-09-13)
  */
 public class Part3 {
     //additional practice using string methods
