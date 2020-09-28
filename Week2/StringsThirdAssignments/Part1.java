@@ -55,66 +55,7 @@ public class Part1 {
         return dna.substring(startIndex, tagIndex + 3); 
         
     }
-    public void printAllGenes(String dna) {
-        
-        //Find genes until there are no more 
-        //Initialize start index
-        
-        int startIndex = 0;
-        
-        while (true) {
-            String currGene = findGene(dna, startIndex);
-            //if no gene
-            if (currGene.isEmpty()) {
-                break;
-            }
-            //Print that gene out 
-            System.out.println(currGene);
-            //Set startIndex to just past the end of the gene
-            startIndex = dna.indexOf(currGene, startIndex) + currGene.length();
-        }
-    }
-    public void testFindStopCodon() {
-        //4. Call the method with several examples 
-        System.out.println("");
-        System.out.println("testFindStopCodon...");
-        //Example with TAA stop codon
-        String dna1 = "ATGCCACGCTAA";
-        System.out.println("The DNA Strand is:   " + dna1);
-        int stopIndex1 = findStopCodon(dna1, 0, "TAA"); 
-        System.out.println("The stop index is :   " + stopIndex1);
-        //Example with no stop codon
-        String dna2 = "ATGGCTCTTAGGATGG";
-        System.out.println("The DNA Strand is:   " + dna2);
-        
-        int stopIndex2 = findStopCodon(dna2, 0, "TAG");
-        System.out.println("The stop index is :   " + stopIndex2);
-    }
-    public void testFindGene() {
-        //no ATG
-        System.out.println("");
-        System.out.println("Test findGene...");
-        String dna1 = "CGCTAACTAGCT";
-        String gene1 = findGene(dna1,0);
-        System.out.println("The DNA Strand is: " + dna1);
-        System.out.println("The gene is: " + gene1);
-        //ATG and one valid stop codon
-        String dna2 = "ATGCAGCGGTCTTAG";
-        String gene2 = findGene(dna2,0);
-        System.out.println("The DNA Strand is: " + dna2);
-        System.out.println("The gene is: " + gene2);
-        //ATG and multiple valid stop codons
-        String dna3 = "TAGATGCGTGACTAGCGTTAG";
-        String gene3 = findGene(dna3,0);
-        System.out.println("The DNA Strand is: " + dna3);
-        System.out.println("The gene is: " + gene3);
-        //ATG with no valid stop codons
-        String dna4 = "GGATGCGATTCGATATTA";
-        System.out.println("The DNA Strand is: " + dna4);
-        String gene4 = findGene(dna4,0);
-        System.out.println("The gene is: " + gene4);
-        
-    }
+
 
     public StorageResource getAllGenes(String dna) {
         //create an empty Storage Resource call it geneList
@@ -136,12 +77,12 @@ public class Part1 {
     
     }
     public void testOn(String dna) {
-        System.out.println("Testing all genes");
+        System.out.println("...Testing all genes in: " + dna);
         StorageResource geneList = getAllGenes("ATGCAGCGGTCTTAGATGCAGCGGTCTTAG");
         for (String g: geneList.data()) {
             System.out.println(g);
         }
-        System.out.println("Done.");
+        System.out.println("...Done.");
     }
 
 }
