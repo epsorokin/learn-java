@@ -14,17 +14,22 @@ public class CSVMax {
         //initialize largestSoFar to be null  
         CSVRecord largestSoFar = null; 
         //For each row (currentRow) in the CSV File
-        for (Class currentRow : parser ) {
+        for (CSVRecord currentRow : parser ) {
             //If largestSoFar is nothing
             if (largestSoFar == null) {
-             //do something 
+                //if it is, assume current temp is the hottest one
+                largestSoFar = currentRow; 
             }
             //Otherwise
             else {
-            //Check if currentRow’s temperature > largestSoFar’s
-
-            //If so update largestSoFar to currentRow
-            largestSoFar = currentRow.getTemperature()
+                //Check if currentRow’s temperature > largestSoFar’s
+                double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
+                double largestTemp = Double.parseDouble(
+                largestSoFar.get("TemperatureF"));
+                //If so update largestSoFar to currentRow
+                if (currentTemp > largestTemp) {
+                    largestSoFar = currentRow;
+                }
             }
         }
         //The largestSoFar is the answer
@@ -32,7 +37,7 @@ public class CSVMax {
     }
 
     public void testHottestInDay () {
-        FileResource fr = new FileResource("data/2015/weather-2015-01-02.csv");
+        FileResource fr = new FileResource("/Users/elenasorokin/src/learn-java/Week3/HottestTemp/data/2015/weather-2015-01-02.csv");
         CSVRecord largest = hottestHourInFile(fr.getCSVParser());
         System.out.println("hottest temperature was " + largest.get("TemperatureF") +
         " at " + largest.get("TimeEST"));
